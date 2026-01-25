@@ -1,73 +1,139 @@
-# React + TypeScript + Vite
+# 🚀 NASA Explorer
+Esplora l'universo attraverso i dati della NASA
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+---
 
-Currently, two official plugins are available:
+## 📖 Descrizione
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+**NASA Explorer** è una Single Page Application che permette di visualizzare dati astronomici in tempo reale utilizzando le API pubbliche della NASA. L'applicazione mostra immagini astronomiche giornaliere (APOD) e asteroidi vicini alla Terra (NEO), con un'interfaccia intuitiva.
 
-## React Compiler
+Progetto sviluppato per l'esame **UF07WEB** - Anno Accademico 2025/26
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## ⚙️ Requisiti
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **Node.js**
+- **npm**
+---
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 📦 Installazione
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+```bash
+# 1. Clona il repository
+git clone https://github.com/tuoutente/nasa-explorer.git
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+# 2. Entra nella cartella del progetto
+cd nasa-explorer
+
+# 3. Installa le dipendenze
+npm install
+
+# 4. (Facoltativo) Sostituisci l'API Key
+# Apri src/pages/ApodPage.tsx e src/pages/NeosPage.tsx
+# Modifica la costante API_KEY con la tua chiave personale
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 🚀 Utilizzo
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Avvio in modalità sviluppo
+
+```bash
+npm run dev
 ```
+
+L'applicazione sarà disponibile su **http://localhost:5173**
+
+### Build per produzione
+
+```bash
+npm run build
+```
+
+I file ottimizzati saranno nella cartella `dist/`
+
+### Preview build di produzione
+
+```bash
+npm run preview
+```
+
+### Verifica errori ESLint
+
+```bash
+npm run lint
+```
+
+---
+
+## � Struttura del Progetto
+
+```
+
+---
+
+## 🛠️ Tecnologie Utilizzate
+
+- **React 19** - Libreria UI
+- **TypeScript 5.9** - Tipizzazione statica
+- **Vite 7** - Build tool ultrarapido
+- **React Router 7** - Gestione routing SPA
+- **React Query 5** - Gestione stato e cache API
+- **Fetch API** - Chiamate HTTP native
+- **CSS3** - Styling con animazioni
+
+---
+
+## ✨ Funzionalità
+
+
+
+---
+
+## � API Utilizzata
+
+### NASA Open APIs
+
+- **Endpoint base**: `https://api.nasa.gov`
+- **Documentazione**: [api.nasa.gov](https://api.nasa.gov)
+
+#### Endpoints usati:
+
+1. **APOD** (Astronomy Picture of the Day)
+   - URL: `/planetary/apod`
+   - Metodo: GET
+   - Parametri: `api_key`, `date` (opzionale)
+
+2. **NEO** (Near Earth Objects)
+   - URL: `/neo/rest/v1/feed`
+   - Metodo: GET
+   - Parametri: `api_key`, `start_date`, `end_date`
+
+#### Rate Limiting
+
+- **DEMO_KEY**: 30 richieste/ora, 50/giorno
+- **Personal Key**: 1000 richieste/ora
+
+---
+
+## 📊 Stato del Progetto
+
+🟢 **Progetto in corso** (Gennaio 2026)
+
+Sviluppato come progetto d'esame per **UF07WEB**
+
+---
+
+## 👤 Autore
+
+**Carmen**  
+📧 Email: carmen.nuvoli@mat.tn.it  
+🎓 Corso: UF07WEB - Anno Accademico 2025/26
+
+---
+
+## 📄 Licenza
+
+Progetto sviluppato a scopo didattico per un esame.
