@@ -1,5 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
-
+import { ApodPage } from './pages/ApodPage';
+import { NotFound } from './pages/NotFound';
 import './App.css';
 
 /**
@@ -10,7 +11,8 @@ function App() {
     return (
         <div className="app">
             <Routes>
-                
+                <Route path="/" element={<ApodPage />} />
+                <Route path="*" element={<NotFound />} />
             </Routes>
             
         </div>

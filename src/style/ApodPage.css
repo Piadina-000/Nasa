@@ -1,0 +1,271 @@
+.apod-page {
+    animation: fadeIn 0.5s ease;
+    padding: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.apod-page__title {
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    animation: fadeIn 0.5s ease;
+}
+
+.apod-page__title-emoji {
+    font-style: normal;
+}
+
+.apod-page__title-text {
+    background: linear-gradient(135deg, var(--nasa-blue) 0%, var(--nasa-red) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: none;
+}
+
+/* Navigation Controls */
+.apod-page__controls {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    animation: fadeIn 0.5s ease;
+}
+
+.apod-page__date-picker {
+    padding: 0.875rem 1.25rem;
+    font-family: 'Orbitron', monospace;
+    font-size: 1rem;
+    background: rgba(11, 61, 145, 0.1);
+    border: 2px solid var(--nasa-blue);
+    color: var(--star-white);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.apod-page__date-picker:hover {
+    background: rgba(11, 61, 145, 0.2);
+    box-shadow: var(--glow-blue);
+}
+
+.apod-page__date-picker::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+    cursor: pointer;
+}
+
+.apod-page__button {
+    min-width: 140px;
+    position: relative;
+    z-index: 1;
+}
+
+.apod-page__button--today {
+    background: var(--nasa-blue);
+    color: var(--nasa-white);
+    border-color: var(--nasa-blue);
+    box-shadow: var(--glow-blue);
+}
+
+.apod-page__button--today:hover {
+    background: var(--nasa-red);
+    border-color: var(--nasa-red);
+    box-shadow: var(--glow-red);
+}
+
+/* Content Grid */
+.apod-page__content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+    animation: fadeIn 0.5s ease;
+}
+
+/* Media Container */
+.apod-page__media {
+    position: relative;
+    background: rgba(0, 0, 0, 0.4);
+    border: 2px solid var(--nasa-blue);
+    overflow: hidden;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.apod-page__media:hover {
+    border-color: var(--nasa-red);
+    box-shadow: var(--glow-blue);
+    transform: scale(1.01);
+}
+
+.apod-page__image,
+.apod-page__video {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+    max-height: 700px;
+}
+
+.apod-page__video {
+    aspect-ratio: 16/9;
+}
+
+/* Info Panel */
+.apod-page__info {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.apod-page__info-card {
+    background: rgba(11, 61, 145, 0.1);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(11, 61, 145, 0.3);
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.apod-page__info-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--gradient-nasa);
+    transform: scaleY(0);
+    transition: transform 0.3s ease;
+}
+
+.apod-page__info-card:hover::before {
+    transform: scaleY(1);
+}
+
+.apod-page__info-card:hover {
+    border-color: var(--nasa-blue);
+    box-shadow: var(--glow-blue);
+    transform: translateX(5px);
+}
+
+.apod-page__info-title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--nasa-white);
+    text-shadow: var(--glow-blue);
+}
+
+.apod-page__date {
+    font-family: 'Orbitron', monospace;
+    font-size: 1rem;
+    color: var(--nasa-blue);
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.apod-page__explanation {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #cbd5e1;
+    margin-bottom: 1.5rem;
+}
+
+.apod-page__copyright {
+    font-size: 0.875rem;
+    color: rgba(232, 241, 245, 0.7);
+    font-style: italic;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(11, 61, 145, 0.3);
+}
+
+/* HD Download Link */
+.apod-page__download {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: linear-gradient(135deg, #ff9500 0%, #ffb700 100%);
+    color: #000;
+    border: none;
+    font-family: 'Orbitron', monospace;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 149, 0, 0.4);
+    cursor: pointer;
+    text-decoration: none;
+}
+
+
+.apod-page__download:hover {
+    box-shadow: 0 6px 25px rgba(255, 149, 0, 0.6);
+    transform: translateY(-3px);
+    color: #000;
+    background: linear-gradient(135deg, #ffb700 0%, #ffc81a 100%);
+}
+
+.apod-page__download:active {
+    transform: translateY(-1px);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .apod-page__content {
+        grid-template-columns: 1fr;
+    }
+
+    .apod-page__title {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .apod-page {
+        padding: 1rem;
+    }
+
+    .apod-page__title {
+        font-size: 2rem;
+    }
+
+    .apod-page__controls {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .apod-page__button {
+        width: 100%;
+    }
+
+    .apod-page__media {
+        min-height: 300px;
+    }
+
+    .apod-page__info-title {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .apod-page__title {
+        font-size: 1.5rem;
+    }
+
+    .apod-page__info-card {
+        padding: 1rem;
+    }
+
+    .apod-page__explanation {
+        font-size: 0.9rem;
+    }
+}
