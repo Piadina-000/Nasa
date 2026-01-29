@@ -72,6 +72,7 @@ npm run lint
 
 ```
 
+```
 ---
 
 ## 🛠️ Tecnologie Utilizzate
@@ -88,7 +89,16 @@ npm run lint
 
 ## ✨ Funzionalità
 
+### Implementate
 
+- ✅ **Pagina APOD**: Visualizza l'immagine astronomica del giorno con descrizione
+- ✅ **Navigazione date**: Naviga tra le immagini di giorni diversi
+- ✅ **Pagina NEO**: Elenco asteroidi vicini alla Terra (oggi)
+- ✅ **Filtri NEO**: Filtra per pericolosità (Hazardous/Safe/All)
+- ✅ **Dettaglio NEO**: Visualizza informazioni complete su ogni asteroide
+- ✅ **Pagina 404**: Gestione URL non validi
+- ✅ **Gestione errori**: Messaggi specifici per ogni tipo di errore
+- ✅ **Loading states**: Spinner durante il caricamento
 
 ---
 
