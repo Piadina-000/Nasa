@@ -1,5 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 import { ApodPage } from './pages/ApodPage';
+import { NeosPage } from './pages/NeosPage';
 import { NotFound } from './pages/NotFound';
 import './App.css';
 
@@ -12,6 +13,7 @@ function App() {
         <div className="app">
             <Routes>
                 <Route path="/" element={<ApodPage />} />
+                <Route path="/neos" element={<NeosPage />} />
                 <Route path="*" element={<NotFound />} />
             </Routes>
             

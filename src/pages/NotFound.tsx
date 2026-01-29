@@ -15,7 +15,7 @@ export const NotFound: React.FC = () => {
                     <div className="not-found__code">404</div>
                     <h1 className="not-found__title">Pagina Non Trovata</h1>
                     <p className="not-found__description">
-                        Oops! La pagina che stai cercando non esiste o è stata spostata.
+                        Cavoletti di bruxelles! La pagina che stai cercando non esiste o è stata spostata.
                     </p>
                     <div className="not-found__icon">🔭</div>
                     <Link to="/" className="not-found__button">
