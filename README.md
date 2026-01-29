@@ -1,5 +1,5 @@
 # 🚀 NASA Explorer
-Esplora l'universo attraverso i dati della NASA
+Esplora l'universo attraverso i dati della NASA - speriamo che questa sia la volta buona e che funzioni finalmente :,)
 
 ---
 

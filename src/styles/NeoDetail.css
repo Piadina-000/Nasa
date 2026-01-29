@@ -1,0 +1,241 @@
+.neo-detail {
+    padding: 40px 20px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.neo-detail__header {
+    margin-bottom: 30px;
+}
+
+.neo-detail__back-button {
+    padding: 10px 20px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.neo-detail__back-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.neo-detail__container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.neo-detail__card {
+    background: white;
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.neo-detail__title-section {
+    margin-bottom: 30px;
+    padding-bottom: 30px;
+    border-bottom: 2px solid #eee;
+}
+
+.neo-detail__title {
+    font-size: 36px;
+    color: #333;
+    margin: 0 0 15px 0;
+    font-weight: 700;
+}
+
+.neo-detail__badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.neo-detail__badge {
+    display: inline-block;
+    padding: 8px 16px;
+    background: #f0f0f0;
+    color: #666;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.neo-detail__badge--hazardous {
+    background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+    color: white;
+}
+
+.neo-detail__section {
+    margin-bottom: 30px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #eee;
+}
+
+.neo-detail__section:last-of-type {
+    border-bottom: none;
+}
+
+.neo-detail__section-title {
+    font-size: 22px;
+    color: #333;
+    margin: 0 0 20px 0;
+    font-weight: 700;
+}
+
+.neo-detail__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.neo-detail__stat {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 8px;
+    border-left: 4px solid #667eea;
+}
+
+.neo-detail__stat-label {
+    font-size: 13px;
+    color: #999;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.neo-detail__stat-value {
+    font-size: 20px;
+    color: #333;
+    font-weight: 700;
+}
+
+.neo-detail__approaches {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.neo-detail__approach-card {
+    background: linear-gradient(135deg, #f5f7ff 0%, #f0f4ff 100%);
+    border: 1px solid #e0e4ff;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.neo-detail__approach-header {
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #e0e4ff;
+}
+
+.neo-detail__approach-title {
+    font-size: 16px;
+    color: #667eea;
+    margin: 0;
+    font-weight: 700;
+}
+
+.neo-detail__approach-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.neo-detail__approach-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.neo-detail__approach-label {
+    font-size: 12px;
+    color: #999;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.neo-detail__approach-value {
+    font-size: 16px;
+    color: #333;
+    font-weight: 700;
+}
+
+.neo-detail__info {
+    text-align: center;
+    color: #999;
+    font-size: 14px;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+}
+
+.neo-detail__info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.neo-detail__info-item {
+    padding: 15px;
+    background: #f9f9f9;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.neo-detail__info-label {
+    font-size: 12px;
+    color: #999;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.neo-detail__info-value {
+    font-size: 16px;
+    color: #333;
+    font-weight: 600;
+    word-break: break-all;
+}
+
+.neo-detail__not-found {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.neo-detail__not-found p {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+    .neo-detail {
+        padding: 20px;
+    }
+
+    .neo-detail__card {
+        padding: 20px;
+    }
+
+    .neo-detail__title {
+        font-size: 24px;
+    }
+
+    .neo-detail__section-title {
+        font-size: 18px;
+    }
+
+    .neo-detail__approach-grid {
+        grid-template-columns: 1fr;
+    }
+}

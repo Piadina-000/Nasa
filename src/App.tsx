@@ -1,6 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
 import { ApodPage } from './pages/ApodPage';
 import { NeosPage } from './pages/NeosPage';
+import { NeoDetailPage } from './pages/NeoDetail';
 import { NotFound } from './pages/NotFound';
 import './App.css';
 
@@ -14,6 +15,7 @@ function App() {
             <Routes>
                 <Route path="/" element={<ApodPage />} />
                 <Route path="/neos" element={<NeosPage />} />
+                <Route path="/neos/:neoId" element={<NeoDetailPage />} />
                 <Route path="*" element={<NotFound />} />
             </Routes>
             
