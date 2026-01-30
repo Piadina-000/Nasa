@@ -50,10 +50,55 @@ L'applicazione sarà disponibile su **http://localhost:5173**
 
 ---
 
-## � Struttura del Progetto
+## 📁 Struttura del Progetto
 
 ```
-
+nasa-explorer/
+├── public/
+│   └── vite.svg
+├── src/
+│   ├── assets/
+│   ├── components/
+│   │   ├── ErrorMessage.tsx
+│   │   ├── ErrorMessage.css
+│   │   ├── Feedback.tsx
+│   │   ├── Feedback.css
+│   │   ├── Header.tsx
+│   │   ├── Header.css
+│   │   ├── Loading.tsx
+│   │   ├── Loading.css
+│   │   └── index.ts
+│   ├── core/
+│   ├── img/
+│   ├── pages/
+│   │   ├── ApodPage.tsx
+│   │   ├── NeosPage.tsx
+│   │   ├── NeoDetail.tsx
+│   │   ├── NotFound.tsx
+│   │   └── index.ts
+│   ├── style/
+│   ├── styles/
+│   ├── types/
+│   │   ├── apod.types.ts
+│   │   ├── common.types.ts
+│   │   ├── component.types.ts
+│   │   ├── error.types.ts
+│   │   ├── feedback.types.ts
+│   │   ├── neo.types.ts
+│   │   └── index.ts
+│   ├── App.tsx
+│   ├── App.css
+│   ├── main.tsx
+│   └── index.css
+├── .gitignore
+├── eslint.config.js
+├── index.html
+├── package.json
+├── tsconfig.json
+├── tsconfig.app.json
+├── tsconfig.node.json
+├── vite.config.ts
+└── README.md
 ```
 ---
 
