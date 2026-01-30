@@ -197,3 +197,35 @@ export interface ListComponentProps<T> {
     error: ApiError | null;
     onItemSelect?: (item: T) => void;
 }
+
+
+// TIPI PER FEEDBACK E FORM
+
+/** Tipo di feedback */
+export type FeedbackType = 'bug' | 'feature' | 'general' | 'other';
+
+/**
+ * Richiesta di feedback (per POST)
+ */
+export interface FeedbackRequest {
+    type: FeedbackType;
+    title: string;
+    message: string;
+    userEmail?: string;
+    timestamp: string;
+}
+
+/**
+ * Risposta dal server per feedback
+ */
+export interface FeedbackResponse {
+    success: boolean;
+    id: string;
+    message: string;
+    timestamp: string;
+}
+
+/** Type alias per risultato feedback */
+export type FeedbackResult = ApiResult<FeedbackResponse>;
+
+

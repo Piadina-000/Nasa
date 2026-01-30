@@ -3,6 +3,7 @@ import { ApodPage } from './pages/ApodPage';
 import { NeosPage } from './pages/NeosPage';
 import { NeoDetailPage } from './pages/NeoDetail';
 import { NotFound } from './pages/NotFound';
+import { Feedback } from './components/Feedback';
 import './App.css';
 
 /**
@@ -18,7 +19,7 @@ function App() {
                 <Route path="/neos/:neoId" element={<NeoDetailPage />} />
                 <Route path="*" element={<NotFound />} />
             </Routes>
-            
+            <Feedback />
         </div>
     );
 }
