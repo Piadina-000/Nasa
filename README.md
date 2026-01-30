@@ -85,29 +85,61 @@ L'applicazione sarà disponibile su **http://localhost:5173**
 
 ---
 
+## 🔑 Credenziali e Configurazione API
+
+### NASA API Key
+
+L'applicazione utilizza le **API pubbliche della NASA** che richiedono una chiave API (gratuita).
+
+#### Come ottenere la chiave API:
+
+1. Visita [api.nasa.gov](https://api.nasa.gov)
+2. Compila il form con i tuoi dati
+3. Riceverai la chiave via email in pochi minuti
+
+#### Dove configurarla:
+
+La chiave API è attualmente nei file:
+- **APOD**: `src/pages/ApodPage.tsx` (riga 9)
+- **NEO**: `src/pages/NeosPage.tsx` (riga 9)
+
+**Per cambiarla:**
+```typescript
+const API_KEY = '...'; 
+```
+
+#### Rate Limiting:
+- **Demo Key**: 30 richieste/ora, 50/giorno
+- **Personal Key**: 1000 richieste/ora (consigliato)
+
+---
+
 ## � API Utilizzata
 
 ### NASA Open APIs
 
-- **Endpoint base**: `https://api.nasa.gov`
-- **Documentazione**: [api.nasa.gov](https://api.nasa.gov)
+**Endpoint base**: `https://api.nasa.gov`  
+**Documentazione**: [api.nasa.gov](https://api.nasa.gov)
 
-#### Endpoints usati:
+#### Endpoints implementati:
 
 1. **APOD** (Astronomy Picture of the Day)
-   - URL: `/planetary/apod`
-   - Metodo: GET
-   - Parametri: `api_key`, `date` (opzionale)
+   - **URL**: `/planetary/apod`
+   - **Metodo**: GET
+   - **Parametri**: 
+     - `api_key` (required)
+     - `date` (optional) - Formato: YYYY-MM-DD
+   - **Descrizione**: Restituisce l'immagine astronomica del giorno
 
 2. **NEO** (Near Earth Objects)
-   - URL: `/neo/rest/v1/feed`
-   - Metodo: GET
-   - Parametri: `api_key`, `start_date`, `end_date`
-
-#### Rate Limiting
-
-- **DEMO_KEY**: 30 richieste/ora, 50/giorno
-- **Personal Key**: 1000 richieste/ora
+   - **URL**: `/neo/rest/v1/feed`
+   - **Metodo**: GET
+   - **Parametri**:
+     - `api_key` (required)
+     - `start_date` (required) - Formato: YYYY-MM-DD
+     - `end_date` (required) - Formato: YYYY-MM-DD
+   - **Descrizione**: Restituisce lista di asteroidi vicini alla Terra
+   - **Filtri implementati**: Per pericolosità (hazardous/safe)
 
 ---
 
