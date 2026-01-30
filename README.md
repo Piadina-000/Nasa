@@ -1,6 +1,8 @@
 # 🚀 NASA Explorer
 Esplora l'universo attraverso i dati della NASA - speriamo che questa sia la volta buona e che funzioni tutto finalmente :,)
 
+Questa è una seconda versione del progetto in quanto la prima mi è esplosa...
+
 ---
 
 ## 📖 Descrizione
