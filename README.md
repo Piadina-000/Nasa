@@ -1,5 +1,5 @@
 # 🚀 NASA Explorer
-Esplora l'universo attraverso i dati della NASA - speriamo che questa sia la volta buona e che funzioni finalmente :,)
+Esplora l'universo attraverso i dati della NASA - speriamo che questa sia la volta buona e che funzioni tutto finalmente :,)
 
 ---
 
@@ -21,7 +21,7 @@ Progetto sviluppato per l'esame **UF07WEB** - Anno Accademico 2025/26
 
 ```bash
 # 1. Clona il repository
-git clone https://github.com/tuoutente/nasa-explorer.git
+git clone https://github.com/Piadina-000/Nasa.git
 
 # 2. Entra nella cartella del progetto
 cd nasa-explorer
@@ -46,26 +46,6 @@ npm run dev
 
 L'applicazione sarà disponibile su **http://localhost:5173**
 
-### Build per produzione
-
-```bash
-npm run build
-```
-
-I file ottimizzati saranno nella cartella `dist/`
-
-### Preview build di produzione
-
-```bash
-npm run preview
-```
-
-### Verifica errori ESLint
-
-```bash
-npm run lint
-```
-
 ---
 
 ## � Struttura del Progetto
@@ -83,7 +63,7 @@ npm run lint
 - **React Router 7** - Gestione routing SPA
 - **React Query 5** - Gestione stato e cache API
 - **Fetch API** - Chiamate HTTP native
-- **CSS3** - Styling con animazioni
+- **CSS** - Styling
 
 ---
 
@@ -96,7 +76,7 @@ npm run lint
 - ✅ **Pagina NEO**: Elenco asteroidi vicini alla Terra (oggi)
 - ✅ **Filtri NEO**: Filtra per pericolosità (Hazardous/Safe/All)
 - ✅ **Dettaglio NEO**: Visualizza informazioni complete su ogni asteroide
-- ✅ **Pagina 404**: Gestione URL non validi
+- ✅ **Pagina 404**: Gestione degli URL non validi
 - ✅ **Gestione errori**: Messaggi specifici per ogni tipo di errore
 - ✅ **Loading states**: Spinner durante il caricamento
 - ✅ **Form feedback**: Invio feedback utenti con validazione
