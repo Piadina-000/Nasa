@@ -10,12 +10,11 @@ const API_KEY = '9ndqamVaOsIlkGRpXYRAZH8QehrjctGv56cfNLbq';
 
 // Cache semplice
 const cache = new Map<string, { data: any; timestamp: number }>();
-const CACHE_DURATION = 60 * 60 * 1000; // 1 ora
+const CACHE_DURATION = 60 * 60 * 1000; 
 
 /**
  * Pagina dettaglio NEO
- * Visualizza informazioni complete su un singolo oggetto celeste
- * Accessibile tramite parametro dinamico nell'URL: /neos/:neoId
+ * Visualizza informazioni complete su un NEO
  */
 export const NeoDetailPage: React.FC = () => {
     const { neoId } = useParams<{ neoId: string }>();

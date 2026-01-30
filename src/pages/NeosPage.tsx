@@ -10,7 +10,7 @@ const API_KEY = '9ndqamVaOsIlkGRpXYRAZH8QehrjctGv56cfNLbq';
 
 // Cache semplice
 const cache = new Map<string, { data: any; timestamp: number }>();
-const CACHE_DURATION = 60 * 60 * 1000; // 1 ora
+const CACHE_DURATION = 60 * 60 * 1000; 
 
 export const NeosPage: React.FC = () => {
     const [filter, setFilter] = useState<'all' | 'hazardous' | 'safe'>('all');
