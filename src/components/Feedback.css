@@ -200,8 +200,6 @@
     }
 }
 
-/* Simplified: use fadeIn only */
-
 @media (max-width: 768px) {
     .feedback__button {
         width: 50px;

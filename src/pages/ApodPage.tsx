@@ -89,7 +89,7 @@ export const ApodPage: React.FC = () => {
     const handleNextDay = () => {
         const date = new Date(selectedDate);
         date.setDate(date.getDate() + 1);
-        // Non andare oltre la giornata di oggi
+        // Serve per non andare oltre la giornata di oggi
         if (date <= new Date()) {
             setSelectedDate(date.toISOString().split('T')[0]);
         }

@@ -1,7 +1,7 @@
 import './Loading.css';
 
 /**
- * Componente Loading, indicatore di caricamento
+ * Componente Loading, caricamento
  * Visualizza uno spinner durante il caricamento dei dati
  */
 export const Loading: React.FC = () => {

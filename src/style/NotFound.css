@@ -70,8 +70,6 @@
     transform: translateY(0);
 }
 
-/* Simplified: use basic fade-in for elements */
-
 @media (max-width: 768px) {
     .not-found__code {
         font-size: 5rem;

@@ -3,7 +3,7 @@ import type { FeedbackType, FeedbackRequest, FeedbackResponse, ApiError } from '
 import './Feedback.css';
 
 /**
- * Componente Feedback - Form di feedback utenti
+ * Componente Feedback - Form di feedback per gli utenti
  * Permette agli utenti di segnalare bug, richiedere feature o inviare feedback generico
  */
 export const Feedback: React.FC = () => {
@@ -16,7 +16,7 @@ export const Feedback: React.FC = () => {
     const [submitMessage, setSubmitMessage] = useState<{ type: 'success' | 'error'; text: string } | null>(null);
 
     /**
-     * Invia il feedback usando fetch
+     * Invia il feedback usando la fetch
      */
     const sendFeedback = async (feedback: FeedbackRequest): Promise<FeedbackResponse> => {
         try {
@@ -66,7 +66,7 @@ export const Feedback: React.FC = () => {
     };
 
     /**
-     * Gestisce l'invio del form di feedback
+     * Gestisce l'invio del form del feedback
      */
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -99,7 +99,6 @@ export const Feedback: React.FC = () => {
                 setSubmitMessage(null);
             }, 3000);
         } catch (error) {
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             const err = error as any;
             setSubmitMessage({
                 type: 'error',

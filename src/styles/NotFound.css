@@ -42,7 +42,6 @@
 .not-found__icon {
     font-size: 80px;
     margin: 30px 0;
-    /* Simplified: no floating animation */
 }
 
 .not-found__button {

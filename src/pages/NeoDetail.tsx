@@ -13,7 +13,7 @@ const cache = new Map<string, { data: any; timestamp: number }>();
 const CACHE_DURATION = 60 * 60 * 1000; 
 
 /**
- * Pagina dettaglio NEO
+ * Pagina dettaglio dei NEO
  * Visualizza informazioni complete su un NEO
  */
 export const NeoDetailPage: React.FC = () => {

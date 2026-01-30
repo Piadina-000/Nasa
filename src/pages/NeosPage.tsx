@@ -21,7 +21,7 @@ export const NeosPage: React.FC = () => {
         const cacheKey = `neo-${today}`;
         const cached = cache.get(cacheKey);
 
-        // Controlla cache
+        // Controlla la cache
         if (cached && Date.now() - cached.timestamp < CACHE_DURATION) {
             return cached.data;
         }
@@ -190,17 +190,15 @@ export const NeosPage: React.FC = () => {
                                         <div key={neo.id} className="neos-page__neo-card">
                                             <div className="neos-page__neo-header">
                                                 <h3 className="neos-page__neo-name">{neo.name}</h3>
-                                                <span className="neos-page__neo-badge neos-page__neo-badge--safe">
-                          ✅ SAFE
-                        </span>
+                                                <span className="neos-page__neo-badge neos-page__neo-badge--safe"> ✅ SAFE </span>
                                             </div>
 
                                             <div className="neos-page__neo-data">
                                                 <div className="neos-page__data-row">
                                                     <span className="neos-page__data-label">Diameter:</span>
                                                     <span className="neos-page__data-value">
-                            {neo.estimated_diameter.kilometers.estimated_diameter_min.toFixed(3)} - {neo.estimated_diameter.kilometers.estimated_diameter_max.toFixed(3)} km
-                          </span>
+                                                        {neo.estimated_diameter.kilometers.estimated_diameter_min.toFixed(3)} - {neo.estimated_diameter.kilometers.estimated_diameter_max.toFixed(3)} km
+                                                    </span>
                                                 </div>
 
                                                 {neo.close_approach_data && neo.close_approach_data.length > 0 && (
@@ -208,15 +206,15 @@ export const NeosPage: React.FC = () => {
                                                         <div className="neos-page__data-row">
                                                             <span className="neos-page__data-label">Close Approach:</span>
                                                             <span className="neos-page__data-value">
-                                {new Date(neo.close_approach_data[0].close_approach_date).toLocaleDateString('it-IT')}
-                              </span>
+                                                                {new Date(neo.close_approach_data[0].close_approach_date).toLocaleDateString('it-IT')}
+                                                            </span>
                                                         </div>
 
                                                         <div className="neos-page__data-row">
                                                             <span className="neos-page__data-label">Distance:</span>
                                                             <span className="neos-page__data-value">
-                                {parseInt(neo.close_approach_data[0].miss_distance.kilometers).toLocaleString()} km
-                              </span>
+                                                                {parseInt(neo.close_approach_data[0].miss_distance.kilometers).toLocaleString()} km
+                                                            </span>
                                                         </div>
                                                     </>
                                                 )}

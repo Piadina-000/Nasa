@@ -24,7 +24,7 @@
     text-shadow: none;
 }
 
-/* Navigation Controls */
+/* Controlli navigatore */
 .apod-page__controls {
     display: flex;
     gap: 1rem;
@@ -76,7 +76,7 @@
     box-shadow: var(--glow-red);
 }
 
-/* Content Grid */
+/* Griglia di controllo */
 .apod-page__content {
     display: grid;
     grid-template-columns: 2fr 1fr;
@@ -84,7 +84,7 @@
     animation: fadeIn 0.5s ease;
 }
 
-/* Media Container */
+/* Contenitore Media */
 .apod-page__media {
     position: relative;
     background: rgba(0, 0, 0, 0.4);
@@ -116,7 +116,7 @@
     aspect-ratio: 16/9;
 }
 
-/* Info Panel */
+/* Pannello Informazioni */
 .apod-page__info {
     display: flex;
     flex-direction: column;
