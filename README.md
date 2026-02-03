@@ -86,6 +86,7 @@ npm run preview
 
 ```
 nasa-explorer/
+├── progettazione/ 
 ├── public/                   
 ├── src/
 │   ├── components/          # Componenti riutilizzabili
