@@ -3,7 +3,7 @@
  */
 
 /**
- * Errore API standardizzato
+ * Errore API
  */
 export interface ApiError {
     message: string;

@@ -1,17 +1,37 @@
 /**
  * TIPI COMUNI
+ * 
+ * Definizioni TypeScript riutilizzabili in tutta l'app.
+ * Questi tipi aiutano a mantenere consistenza nel codice.
+ * 
+ * @author Carmen - UF07WEB
  */
 
-
+/**
+ * ID generico per entità (può essere stringa o numero)
+ * Utile perché alcune API usano stringhe, altre numeri
+ */
 export type EntityId = string | number;
 
-
+/**
+ * Tipo di media supportati dall'app
+ * - image: Immagini (JPG, PNG, ecc.)
+ * - video: Video embedded (tipo youtube)
+ */
 export type MediaType = 'image' | 'video';
 
-/** Type alias per pagina in lista */
+/**
+ * Informazioni sulla paginazione
+ * Utile per liste lunghe divise in pagine
+ */
 export type PageInfo = {
+    /** Pagina corrente */
     current: number;
+    
+    /** Numero totale di pagine */
     total: number;
+    
+    /** Se ci sono altre pagine da caricare */
     hasMore: boolean;
 };
 

@@ -1,3 +1,26 @@
+/**
+ * PAGINA NEO - Near Earth Objects
+ * 
+ * Questa pagina mostra tutti gli asteroidi che passano vicino alla Terra nella giornata corrente.
+ * La NASA tiene traccia di tutti questi oggetti per sicurezza (nel caso dovessimo
+ * preoccuparci di qualche asteroide che ci viene troppo vicino).
+ * 
+ * FUNZIONALITÀ:
+ * - Lista di tutti i NEO di oggi
+ * - Filtri: tutti / pericolosi / sicuri
+ * - Statistiche generali (totale, pericolosi, sicuri)
+ * - Link ai dettagli di ogni asteroide
+ * - Sistema di cache come in ApodPage
+ * 
+ * DETTAGLI:
+ * - API: NASA NEO Feed (fornisce dati giornalieri)
+ * - Cache di 1 ora per evitare troppe richieste
+ * - Gestione errori completa
+ * - Ordinamento per nome
+ * 
+ * @author Carmen - UF07WEB
+ */
+
 import { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import type { NeoObject, ApiError } from '../types';
@@ -8,20 +31,28 @@ import '../style/NeosPage.css';
 const NASA_API = 'https://api.nasa.gov';
 const API_KEY = '9ndqamVaOsIlkGRpXYRAZH8QehrjctGv56cfNLbq';
 
-// Cache semplice
+// Cache manuale (stesso sistema di ApodPage)
 const cache = new Map<string, { data: any; timestamp: number }>();
-const CACHE_DURATION = 60 * 60 * 1000; 
+const CACHE_DURATION = 60 * 60 * 1000; // 1 ora
 
 export const NeosPage: React.FC = () => {
+    // Stato per il filtro (tutti/pericolosi/sicuri)
     const [filter, setFilter] = useState<'all' | 'hazardous' | 'safe'>('all');
 
-    // Funzione per chiamare l'API NEO
+    /**
+     * Funzione per recuperare i NEO di oggi dall'API NASA
+     * 
+     * L'API NEO Feed restituisce gli asteroidi per un range di date.
+     * Io richiedo solo oggi (start_date = end_date = oggi).
+     * 
+     * @returns Promise con array di oggetti NEO
+     */
     const fetchTodayNeos = async (): Promise<NeoObject[]> => {
         const today = new Date().toISOString().split('T')[0];
         const cacheKey = `neo-${today}`;
         const cached = cache.get(cacheKey);
 
-        // Controlla la cache
+        // Controllo cache
         if (cached && Date.now() - cached.timestamp < CACHE_DURATION) {
             return cached.data;
         }
@@ -29,9 +60,10 @@ export const NeosPage: React.FC = () => {
         try {
             const url = `${NASA_API}/neo/rest/v1/feed?api_key=${API_KEY}&start_date=${today}&end_date=${today}`;
             const response = await fetch(url, {
-                signal: AbortSignal.timeout(30000),
+                signal: AbortSignal.timeout(30000), // Timeout 30s
             });
 
+            // Gestione rate limit
             if (response.status === 429) {
                 throw {
                     message: '⚠️ Troppe richieste! Riprova tra qualche secondo.',
@@ -49,6 +81,7 @@ export const NeosPage: React.FC = () => {
             }
 
             const data = await response.json();
+            // L'API restituisce un oggetto con date come chiave
             const neos = data.near_earth_objects[today] || [];
             
             // Salva in cache
@@ -70,16 +103,18 @@ export const NeosPage: React.FC = () => {
         }
     };
 
+    // React Query hook
     const { data: neos, isLoading, isError, error, refetch } = useQuery({
         queryKey: ['today-neos'],
         queryFn: fetchTodayNeos,
-        staleTime: 1000 * 60 * 60,
+        staleTime: 1000 * 60 * 60, // Dati recenti per 1 ora
         retry: (failureCount, error: any) => {
             if (error?.status === 429) return false;
             return failureCount < 3;
         },
     });
 
+    // Filtro gli asteroidi in base alla pericolosità
     const hazardousNeos = neos?.filter((neo) => neo.is_potentially_hazardous_asteroid) || [];
     const safeNeos = neos?.filter((neo) => !neo.is_potentially_hazardous_asteroid) || [];
 
@@ -89,8 +124,10 @@ export const NeosPage: React.FC = () => {
             <div className="neos-page">
                 <h1 className="neos-page__title"><span className="neos-page__title-text">Near Earth Objects - Today</span></h1>
 
+                {/* Stato di caricamento */}
                 {isLoading && <Loading />}
 
+                {/* Gestione errori */}
                 {isError && error && (
                     <ErrorMessage
                         error={error}

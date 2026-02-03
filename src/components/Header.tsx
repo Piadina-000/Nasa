@@ -1,10 +1,18 @@
+/**
+ * COMPONENTE HEADER - Barra di navigazione
+ * 
+ * Header che compare in tutte le pagine dell'app.
+ * Contiene il logo e i link per navigare tra le sezioni principali:
+ * - APOD: Astronomy Picture of the Day
+ * - NEO: Near Earth Objects
+ * 
+ * Ho usato i link di React Router così la navigazione è super veloce
+ * senza dover ricaricare la pagina innumerevoli volte.
+ */
+
 import { Link } from 'react-router-dom';
 import './Header.css';
 
-/**
- * Componente Header, barra di navigazione principale
- * Fornisce la navigazione tra le principali sezioni dell'app
- */
 export const Header: React.FC = () => {
     return (
         <header className="header">
@@ -14,6 +22,7 @@ export const Header: React.FC = () => {
                     <span className="header__logo-text">NASA Explorer</span>
                 </Link>
 
+                {/* Menu di navigazione principale */}
                 <nav className="header__nav">
                     <Link to="/" className="header__nav-link">
                         APOD

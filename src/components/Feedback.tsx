@@ -1,22 +1,42 @@
+/**
+ * COMPONENTE FEEDBACK - Sistema di raccolta feedback utenti
+ * 
+ * Questo componente permette agli utenti di inviare feedback, segnalare bug
+ * o richiedere nuove funzionalità. 
+ * È sempre visibile come pulsante fluttuante in basso a destra.
+ * 
+ * FUNZIONALITÀ:
+ * - Form con tipo di feedback (bug/feature/generale)
+ * - Validazione input lato client
+ * - Invio tramite API mock
+ * - Gestione errori e messaggi di successo
+ * - Sistema di cache per evitare spam
+ * 
+ * Ho usato JSONPlaceholder perché è un'API fake gratuita perfetta per testare.
+ * In produzione andrebbe sostituita con un backend reale.
+ * 
+ * @author Carmen
+ */
+
 import { useState } from 'react';
 import type { FeedbackType, FeedbackRequest, FeedbackResponse, ApiError } from '../types';
 import './Feedback.css';
 
-/**
- * Componente Feedback - Form di feedback per gli utenti
- * Permette agli utenti di segnalare bug, richiedere feature o inviare feedback generico
- */
 export const Feedback: React.FC = () => {
-    const [isOpen, setIsOpen] = useState(false);
-    const [type, setType] = useState<FeedbackType>('general');
-    const [title, setTitle] = useState('');
-    const [message, setMessage] = useState('');
-    const [userEmail, setUserEmail] = useState('');
-    const [isLoading, setIsLoading] = useState(false);
+    // Stati per gestire il form e la UI
+    const [isOpen, setIsOpen] = useState(false); // Apre/chiude il modal
+    const [type, setType] = useState<FeedbackType>('general'); // Tipo di feedback
+    const [title, setTitle] = useState(''); // Titolo del feedback
+    const [message, setMessage] = useState(''); // Messaggio dettagliato
+    const [userEmail, setUserEmail] = useState(''); // Email opzionale dell'utente
+    const [isLoading, setIsLoading] = useState(false); // Stato di invio
     const [submitMessage, setSubmitMessage] = useState<{ type: 'success' | 'error'; text: string } | null>(null);
 
     /**
-     * Invia il feedback usando la fetch
+     * Funzione che invia il feedback all'API
+     * 
+     * @param feedback - Dati del feedback da inviare
+     * @returns Promise con la risposta dell'API
      */
     const sendFeedback = async (feedback: FeedbackRequest): Promise<FeedbackResponse> => {
         try {
@@ -28,9 +48,9 @@ export const Feedback: React.FC = () => {
                 body: JSON.stringify({
                     title: feedback.title,
                     body: feedback.message,
-                    userId: 999,
+                    userId: 999, // ID fittizio
                 }),
-                signal: AbortSignal.timeout(10000),
+                signal: AbortSignal.timeout(10000), // Timeout di 10 secondi
             });
 
             if (!response.ok) {
@@ -50,6 +70,7 @@ export const Feedback: React.FC = () => {
                 timestamp: new Date().toISOString(),
             };
         } catch (error: any) {
+            // Gestione timeout
             if (error.name === 'TimeoutError') {
                 throw {
                     message: 'Timeout: richiesta troppo lenta',
@@ -57,6 +78,7 @@ export const Feedback: React.FC = () => {
                     code: 'TIMEOUT',
                 } as ApiError;
             }
+            // Gestione altri errori
             throw error.status ? error : {
                 message: error.message || 'Errore nell\'invio del feedback',
                 status: 500,
@@ -66,7 +88,8 @@ export const Feedback: React.FC = () => {
     };
 
     /**
-     * Gestisce l'invio del form del feedback
+     * Invio del form
+     * Gestisce validazione, invio e reset del form
      */
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -82,18 +105,19 @@ export const Feedback: React.FC = () => {
                 timestamp: new Date().toISOString(),
             });
 
+            // Mostra messaggio di successo
             setSubmitMessage({
                 type: 'success',
                 text: response.message,
             });
 
-            // Reset form
+            // Resetta il form
             setTitle('');
             setMessage('');
             setUserEmail('');
             setType('general');
 
-            // Chiudi il modal dopo 3 secondi
+            // Chiude il modal automaticamente dopo 3 secondi
             setTimeout(() => {
                 setIsOpen(false);
                 setSubmitMessage(null);

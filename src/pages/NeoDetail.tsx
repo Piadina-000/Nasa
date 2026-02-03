@@ -1,3 +1,25 @@
+/**
+ * PAGINA DETTAGLIO NEO - Informazioni complete su un asteroide
+ * 
+ * Questa pagina mostra tutti i dettagli di un singolo asteroide.
+ * Si accede tramite la lista NEO.
+ * 
+ * COSA MOSTRA:
+ * - Nome e ID dell'asteroide
+ * - Se è potenzialmente pericoloso o no
+ * - Dimensioni (min e max in metri)
+ * - Velocità relativa
+ * - Distanza dalla Terra (in km e miglia lunari)
+ * - Magnitudine assoluta
+ * 
+ * NOTA TECNICA:
+ * Recupero i dati dalla stessa API NEO Feed (non c'è API per singolo ID
+ * nel piano free), quindi carico tutti i NEO di oggi e poi filtro per ID.
+ * Non è il massimo dell'efficienza ma l'importante è che funzioni!!!!
+ * 
+ * @author Carmen - UF07WEB
+ */
+
 import { useParams, useNavigate } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 import type { NeoObject, ApiError } from '../types';
@@ -8,25 +30,24 @@ import '../style/NeoDetail.css';
 const NASA_API = 'https://api.nasa.gov';
 const API_KEY = '9ndqamVaOsIlkGRpXYRAZH8QehrjctGv56cfNLbq';
 
-// Cache semplice
+// Cache (stessa di NeosPage - potrei condividerla ma va bene così)
 const cache = new Map<string, { data: any; timestamp: number }>();
 const CACHE_DURATION = 60 * 60 * 1000; 
 
-/**
- * Pagina dettaglio dei NEO
- * Visualizza informazioni complete su un NEO
- */
 export const NeoDetailPage: React.FC = () => {
-    const { neoId } = useParams<{ neoId: string }>();
+    const { neoId } = useParams<{ neoId: string }>(); // ID dall'URL
     const navigate = useNavigate();
 
-    // Funzione per chiamare l'API NEO
+    /**
+     * Funzione per recuperare i NEO di oggi
+     * (stessa di NeosPage - la riuso qui)
+     */
     const fetchTodayNeos = async (): Promise<NeoObject[]> => {
         const today = new Date().toISOString().split('T')[0];
         const cacheKey = `neo-${today}`;
         const cached = cache.get(cacheKey);
 
-        // Controlla cache
+        // Controllo cache
         if (cached && Date.now() - cached.timestamp < CACHE_DURATION) {
             return cached.data;
         }

@@ -11,29 +11,47 @@ Questa è una seconda versione del progetto in quanto la prima mi è esplosa...
 
 Progetto sviluppato per l'esame **UF07WEB** - Anno Accademico 2025/26
 
+### Cosa fa l'app?
+
+L'app si connette direttamente alle API della NASA per mostrare:
+-  **APOD (Astronomy Picture of the Day)**: L'immagine o video astronomico del giorno, scelto dalla NASA, con una spiegazione scientifica dettagliata
+-  **NEO (Near Earth Objects)**: Lista di asteroidi che passano vicino alla Terra oggi, con informazioni su dimensioni, velocità e pericolosità
+-  **Sistema Feedback**: Un form per permettere agli utenti di segnalare bug o richiedere nuove feature
+
+### Perché questo progetto?
+
+Volevo creare qualcosa di interessante che combinasse la mia passione per lo spazio con quello che ho imparato nel corso. Le API della NASA sono gratuite, ben documentate e offrono dati davvero interessanti!
+
 ---
 
 ## ⚙️ Requisiti
 
-- **Node.js**
-- **npm**
+Per far girare il progetto ti serve:
+
+- **Node.js** 
+- **npm** 
+
 ---
 
 ## 📦 Installazione
+
+Ecco i passi per installare e avviare il progetto:
 
 ```bash
 # 1. Clona il repository
 git clone https://github.com/Piadina-000/Nasa.git
 
 # 2. Entra nella cartella del progetto
-cd nasa-explorer
+cd Nasa
 
-# 3. Installa le dipendenze
+# 3. Installa tutte le dipendenze
 npm install
 
-# 4. (Facoltativo) Sostituisci l'API Key
-# Apri src/pages/ApodPage.tsx e src/pages/NeosPage.tsx
-# Modifica la costante API_KEY con la tua chiave personale
+# 4. (Opzionale) Sostituisci l'API Key
+# Se vuoi usare la tua chiave NASA personale (consigliato per evitare rate limit):
+# - Vai su https://api.nasa.gov e richiedi una chiave gratuita
+# - Apri src/pages/ApodPage.tsx e src/pages/NeosPage.tsx
+# - Sostituisci la variabile API_KEY con la tua chiave
 ```
 
 ---
@@ -48,151 +66,143 @@ npm run dev
 
 L'applicazione sarà disponibile su **http://localhost:5173**
 
+### Build per produzione
+
+```bash
+npm run build
+```
+
+Crea una versione ottimizzata nella cartella `dist/`
+
+### Anteprima build di produzione
+
+```bash
+npm run preview
+```
+
 ---
 
 ## 📁 Struttura del Progetto
 
 ```
 nasa-explorer/
-├── public/
-│   └── vite.svg
+├── public/                   
 ├── src/
-│   ├── assets/
-│   ├── components/
-│   │   ├── ErrorMessage.tsx
-│   │   ├── ErrorMessage.css
-│   │   ├── Feedback.tsx
-│   │   ├── Feedback.css
-│   │   ├── Header.tsx
-│   │   ├── Header.css
-│   │   ├── Loading.tsx
-│   │   ├── Loading.css
-│   │   └── index.ts
-│   ├── core/
-│   ├── img/
-│   ├── pages/
-│   │   ├── ApodPage.tsx
-│   │   ├── NeosPage.tsx
-│   │   ├── NeoDetail.tsx
-│   │   ├── NotFound.tsx
-│   │   └── index.ts
-│   ├── style/
-│   ├── styles/
-│   ├── types/
-│   │   ├── apod.types.ts
-│   │   ├── common.types.ts
-│   │   ├── component.types.ts
-│   │   ├── error.types.ts
-│   │   ├── feedback.types.ts
-│   │   ├── neo.types.ts
-│   │   └── index.ts
-│   ├── App.tsx
-│   ├── App.css
-│   ├── main.tsx
-│   └── index.css
-├── .gitignore
-├── eslint.config.js
-├── index.html
-├── package.json
-├── tsconfig.json
-├── tsconfig.app.json
-├── tsconfig.node.json
-├── vite.config.ts
-└── README.md
+│   ├── components/          # Componenti riutilizzabili
+│   │   ├── ErrorMessage.*   # Gestione e visualizzazione errori
+│   │   ├── Feedback.*       # Form di feedback utente
+│   │   ├── Header.*         # Barra di navigazione
+│   │   ├── Loading.*        # Spinner di caricamento
+│   │   └── index.ts         # Export centralizzato
+│   ├── pages/               
+│   │   ├── ApodPage.tsx     # Pagina APOD 
+│   │   ├── NeosPage.tsx     # Lista asteroidi NEO
+│   │   ├── NeoDetail.tsx    # Dettaglio singolo asteroide
+│   │   ├── NotFound.tsx     # Pagina 404
+│   │   └── index.ts         # Export pagine
+│   ├── types/               
+│   │   ├── apod.types.ts    # Tipi per APOD
+│   │   ├── neo.types.ts     # Tipi per NEO
+│   │   ├── feedback.types.ts # Tipi per feedback
+│   │   ├── common.types.ts  # Tipi condivisi
+│   │   ├── error.types.ts   # Tipi per errori
+│   │   └── index.ts         # Export tipi
+│   ├── style/               
+│   ├── App.tsx              
+│   ├── main.tsx             
+│   └── index.css            
+├── eslint.config.js         
+├── tsconfig.json            
+├── vite.config.ts           
+└── package.json             
 ```
+
+- **`components/`**: Componenti riutilizzabili 
+- **`pages/`**: Componenti rappresentano intere pagine
+- **`types/`**: Tutte le definizioni TypeScript
+- **`style/`**: CSS separato per ogni pagina
+
 ---
 
 ## 🛠️ Tecnologie Utilizzate
 
-- **React 19** - Libreria UI
-- **TypeScript 5.9** - Tipizzazione statica
-- **Vite 7** - Build tool ultrarapido
-- **React Router 7** - Gestione routing SPA
-- **React Query 5** - Gestione stato e cache API
-- **Fetch API** - Chiamate HTTP native
-- **CSS** - Styling
+### Frontend
+- **React** - Libreria UI per costruire interfacce reattive
+- **TypeScript** - JavaScript con tipizzazione statica (aiuta a trovare errori prima del runtime)
+- **CSS** 
 
 ---
 
 ## ✨ Funzionalità
 
-### Implementate
+### ✅ Implementate
 
-- ✅ **Pagina APOD**: Visualizza l'immagine astronomica del giorno con descrizione
-- ✅ **Navigazione date**: Naviga tra le immagini di giorni diversi
-- ✅ **Pagina NEO**: Elenco asteroidi vicini alla Terra (oggi)
-- ✅ **Filtri NEO**: Filtra per pericolosità (Hazardous/Safe/All)
-- ✅ **Dettaglio NEO**: Visualizza informazioni complete su ogni asteroide
-- ✅ **Pagina 404**: Gestione degli URL non validi
-- ✅ **Gestione errori**: Messaggi specifici per ogni tipo di errore
-- ✅ **Loading states**: Spinner durante il caricamento
-- ✅ **Form feedback**: Invio feedback utenti con validazione
+- **Pagina APOD**: 
+  - Visualizza immagine/video del giorno
+  - Mostra titolo, data e spiegazione scientifica
+  - Supporto video YouTube
+  - Modale per vedere immagini a schermo intero
+  - Navigazione tra date
+  
+- **Pagina NEO**: 
+  - Lista di tutti gli asteroidi di oggi
+  - Statistiche: totale, pericolosi, sicuri
+  - Filtri 
+  - Link ai dettagli di ogni asteroide
+  
+- **Dettaglio NEO**: 
+  - Info complete sull'asteroide
+  - Dimensioni, velocità, distanza
+  - Warning visivo se è pericoloso
+  
+- **Gestione Errori**: 
+  - Messaggi specifici per tipo di errore
+  - Pulsante "Riprova" per tentare di nuovo
+  - Gestione rate limit API
+  
+- **Performance**: 
+  - Sistema di cache
+  - Timeout sulle richieste
+  - Retry automatico
+  
+- **UX**: 
+  - Loading states con spinner
+  - Transizioni
+  - Responsive
+  - Form feedback per segnalazioni
 
 ---
 
-## 🔑 Credenziali e Configurazione API
+## 🔑 API NASA - Setup
 
-### NASA API Key
+### Come funziona?
 
-L'applicazione utilizza le **API pubbliche della NASA** che richiedono una chiave API (gratuita).
+L'app usa le **API pubbliche della NASA**, che sono gratuite ma richiedono una chiave (API Key).
 
-#### Come ottenere la chiave API:
+### Ottenere la tua API Key (consigliato!)
 
-1. Visita [api.nasa.gov](https://api.nasa.gov)
-2. Compila il form con i tuoi dati
-3. Riceverai la chiave via email in pochi minuti
+1. Vai su [api.nasa.gov](https://api.nasa.gov)
+2. Scorri fino a "Get Your API Key"
+3. Compila il form con:
+   - Nome
+   - Cognome
+   - Email
+4. Riceverai la chiave via email in pochi minuti
 
-#### Dove configurarla:
+### Dove inserirla nel codice?
 
-La chiave API è attualmente nei file:
-- **APOD**: `src/pages/ApodPage.tsx` (riga 9)
-- **NEO**: `src/pages/NeosPage.tsx` (riga 9)
+Cerca questa riga nei file `ApodPage.tsx`, `NeosPage.tsx` e `NeoDetail.tsx`:
 
-**Per cambiarla:**
 ```typescript
-const API_KEY = '...'; 
+const API_KEY = '...'; // ← Sostituisci qui
 ```
-
-#### Rate Limiting:
-- **Demo Key**: 30 richieste/ora, 50/giorno
-- **Personal Key**: 1000 richieste/ora (consigliato)
-
----
-
-## � API Utilizzata
-
-### NASA Open APIs
-
-**Endpoint base**: `https://api.nasa.gov`  
-**Documentazione**: [api.nasa.gov](https://api.nasa.gov)
-
-#### Endpoints implementati:
-
-1. **APOD** (Astronomy Picture of the Day)
-   - **URL**: `/planetary/apod`
-   - **Metodo**: GET
-   - **Parametri**: 
-     - `api_key` (required)
-     - `date` (optional) - Formato: YYYY-MM-DD
-   - **Descrizione**: Restituisce l'immagine astronomica del giorno
-
-2. **NEO** (Near Earth Objects)
-   - **URL**: `/neo/rest/v1/feed`
-   - **Metodo**: GET
-   - **Parametri**:
-     - `api_key` (required)
-     - `start_date` (required) - Formato: YYYY-MM-DD
-     - `end_date` (required) - Formato: YYYY-MM-DD
-   - **Descrizione**: Restituisce lista di asteroidi vicini alla Terra
-   - **Filtri implementati**: Per pericolosità (hazardous/safe)
-
 ---
 
 ## 📊 Stato del Progetto
 
-🟢 **Progetto in corso** (Gennaio 2026)
+🟢 **In sviluppo** (Febbraio 2026)
 
-Sviluppato come progetto d'esame per **UF07WEB**
+Progetto per l'esame **UF07WEB** - Anno Accademico 2025/26
 
 ---
 
@@ -200,7 +210,8 @@ Sviluppato come progetto d'esame per **UF07WEB**
 
 **Carmen**  
 📧 Email: carmen.nuvoli@mat.tn.it  
-🎓 Corso: UF07WEB - Anno Accademico 2025/26
+🎓 Corso: UF07WEB - Anno Accademico 2025/26  
+🔗 GitHub: [@Piadina-000](https://github.com/Piadina-000)
 
 ---
 
