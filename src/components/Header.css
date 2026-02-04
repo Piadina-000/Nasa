@@ -57,7 +57,7 @@
 }
 
 .header__nav-link {
-  color: #4A90E2;
+  color: var(--nasa-white);
   text-decoration: none;
   font-family: 'Orbitron', monospace;
   font-weight: 700;
@@ -65,13 +65,13 @@
   text-transform: uppercase;
   letter-spacing: 0.1em;
   padding: 0.75rem 1.5rem;
-  border: 2px solid #4A90E2;
-  background: transparent;
+  border: 2px solid var(--nasa-blue);
+  background: var(--nasa-blue);
   transition: all 0.3s ease;
-  position: relative;
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  box-shadow: var(--glow-blue);
 }
 
 .header__nav-icon {
@@ -79,10 +79,10 @@
 }
 
 .header__nav-link:hover {
-  color: #FFFFFF;
-  background: #DC3C50;
-  border-color: #DC3C50;
-  box-shadow: 0 0 15px rgba(220, 60, 80, 0.4);
+  color: var(--nasa-white);
+  background: var(--nasa-red);
+  border-color: var(--nasa-red);
+  box-shadow: var(--glow-red);
 }
 
 @media (max-width: 768px) {

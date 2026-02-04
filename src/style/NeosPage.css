@@ -1,5 +1,4 @@
 .neos-page {
-    animation: fadeIn 0.5s ease;
     padding: 2rem;
     max-width: 1600px;
     margin: 0 auto;
@@ -9,7 +8,6 @@
     font-size: 3rem;
     text-align: center;
     margin-bottom: 2rem;
-    animation: fadeIn 0.5s ease;
 }
 
 .neos-page__title-emoji {
@@ -30,7 +28,6 @@
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 1.5rem;
     margin-bottom: 3rem;
-    animation: fadeIn 0.5s ease;
 }
 
 .neos-page__stat-card {
@@ -39,40 +36,8 @@
     border: 1px solid rgba(11, 61, 145, 0.3);
     padding: 2rem;
     text-align: center;
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
     cursor: pointer;
     font-family: inherit;
-}
-
-.neos-page__stat-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: var(--gradient-nasa);
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.3s ease;
-}
-
-.neos-page__stat-card:hover::before {
-    transform: scaleX(1);
-}
-
-.neos-page__stat-card:hover {
-    border-color: var(--nasa-blue);
-    box-shadow: var(--glow-blue);
-    transform: translateY(-8px);
-}
-
-.neos-page__stat-card--active {
-    border-color: var(--nasa-blue);
-    box-shadow: var(--glow-blue);
-    transform: translateY(-8px);
 }
 
 .neos-page__stat-card--total {
@@ -82,11 +47,6 @@
 .neos-page__stat-card--hazardous {
     background: linear-gradient(135deg, rgba(252, 61, 33, 0.1) 0%, rgba(255, 0, 110, 0.1) 100%);
     border-color: rgba(252, 61, 33, 0.4);
-}
-
-.neos-page__stat-card--hazardous:hover {
-    border-color: var(--nasa-red);
-    box-shadow: var(--glow-red);
 }
 
 .neos-page__stat-card--safe {
@@ -125,7 +85,6 @@
 /* sezione Intestazione */
 .neos-page__section {
     margin-bottom: 3rem;
-    animation: fadeIn 0.5s ease;
 }
 
 .neos-page__section-title {
@@ -164,7 +123,7 @@
     backdrop-filter: blur(20px);
     border: 1px solid rgba(11, 61, 145, 0.3);
     padding: 1.5rem;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
     position: relative;
     overflow: hidden;
 }
@@ -178,7 +137,7 @@
     height: 100%;
     background: var(--nasa-blue);
     transform: scaleY(0);
-    transition: transform 0.3s ease;
+    transition: transform 0.2s ease;
 }
 
 .neos-page__neo-card--hazardous::before {
@@ -191,8 +150,6 @@
 
 .neos-page__neo-card:hover {
     border-color: var(--nasa-blue);
-    box-shadow: var(--glow-blue);
-    transform: translateX(10px);
 }
 
 .neos-page__neo-card--hazardous {
@@ -202,7 +159,6 @@
 
 .neos-page__neo-card--hazardous:hover {
     border-color: var(--nasa-red);
-    box-shadow: var(--glow-red);
 }
 
 /* Intestazione NEO Card */
@@ -236,13 +192,11 @@
 .neos-page__neo-badge--hazardous {
     background: linear-gradient(135deg, var(--nasa-red) 0%, #ff006e 100%);
     color: var(--nasa-white);
-    box-shadow: var(--glow-red);
 }
 
 .neos-page__neo-badge--safe {
     background: linear-gradient(135deg, var(--nasa-blue) 0%, #00d4aa 100%);
     color: var(--nasa-white);
-    box-shadow: var(--glow-blue);
 }
 
 /* Righe dati NEO */
@@ -259,13 +213,12 @@
     padding: 0.75rem;
     background: rgba(255, 255, 255, 0.03);
     border-left: 2px solid transparent;
-    transition: all 0.2s ease;
+    transition: all 0.15s ease;
 }
 
 .neos-page__data-row:hover {
     background: rgba(11, 61, 145, 0.1);
     border-left-color: var(--nasa-blue);
-    transform: translateX(5px);
 }
 
 .neos-page__neo-card--hazardous .neos-page__data-row:hover {
