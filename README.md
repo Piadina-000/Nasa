@@ -14,13 +14,14 @@ Progetto sviluppato per l'esame **UF07WEB** - Anno Accademico 2025/26
 ### Cosa fa l'app?
 
 L'app si connette direttamente alle API della NASA per mostrare:
--  **APOD (Astronomy Picture of the Day)**: L'immagine o video astronomico del giorno, scelto dalla NASA, con una spiegazione scientifica dettagliata
--  **NEO (Near Earth Objects)**: Lista di asteroidi che passano vicino alla Terra oggi, con informazioni su dimensioni, velocità e pericolosità
--  **Sistema Feedback**: Un form per permettere agli utenti di segnalare bug o richiedere nuove feature
+-  **APOD (Astronomy Picture of the Day)**: L'immagine o video astronomico del giorno, scelto dalla NASA, con una spiegazione scientifica dettagliata;
+-  **NEO (Near Earth Objects)**: Lista di asteroidi che passano vicino alla Terra oggi, con informazioni su dimensioni, velocità e pericolosità;
+-  **Dettagli NEO**: Pagina dedicata ad ogni asteroide con informazioni complete: dimensioni precise, storico degli avvicinamenti alla Terra, velocità e distanze;
+-  **Sistema Feedback**: Un form per permettere agli utenti di segnalare bug o richiedere nuove feature;
 
 ### Perché questo progetto?
 
-Volevo creare qualcosa di interessante che combinasse la mia passione per lo spazio con quello che ho imparato nel corso. Le API della NASA sono gratuite, ben documentate e offrono dati davvero interessanti!
+Volevo sviluppare un progetto di interessante che combinasse la mia passione per lo spazio con quello che ho imparato nel corso. Le API della NASA sono gratuite, ben documentate e offrono dati davvero interessanti.
 
 ---
 
@@ -35,7 +36,7 @@ Per far girare il progetto ti serve:
 
 ## 📦 Installazione
 
-Ecco i passi per installare e avviare il progetto:
+Questi sono i passi per installare e avviare il progetto:
 
 ```bash
 # 1. Clona il repository
@@ -50,7 +51,7 @@ npm install
 # 4. (Opzionale) Sostituisci l'API Key
 # Se vuoi usare la tua chiave NASA personale (consigliato per evitare rate limit):
 # - Vai su https://api.nasa.gov e richiedi una chiave gratuita
-# - Apri src/pages/ApodPage.tsx e src/pages/NeosPage.tsx
+# - Apri src/pages/ApodPage.tsx,  src/pages/NeosPage.tsx e src/pages/NeoDetail.tsx
 # - Sostituisci la variabile API_KEY con la tua chiave
 ```
 
@@ -141,21 +142,21 @@ Nasa/
 
 ### 📋 Descrizione Cartelle
 
-**components/**  Componenti riutilizzabili (header, loading, errori, form) 
-**pages/**  Componenti full-page per ogni rotta dell'app 
-**types/**  Tutte le definizioni TypeScript dell'app 
-**styles/**  CSS separato per ogni pagina e componente 
-**core/**  Logica core: hooks personalizzati e modelli 
-**img/**  Immagini utilizzate nell'app 
-**assets/**  Asset statici (icone, immagini React) 
+- **components/**  Componenti riutilizzabili 
+- **pages/**  Componenti per ogni rotta dell'app 
+- **types/**  Tutte le definizioni TypeScript dell'app 
+- **styles/**  CSS separato per ogni pagina e componente 
+- **core/**  Logica core: hooks personalizzati e modelli 
+- **img/**  Immagini utilizzate nell'app 
 
 ---
 
 ## �️ Routing
 
- `/`  ApodPage  Immagine astronomica del giorno (APOD) 
- `/neos`  NeosPage  Lista degli asteroidi vicini alla Terra 
- `*`  NotFound  Pagina 404 per rotte non trovate 
+- `/` ApodPage - Immagine astronomica del giorno (APOD)
+- `/neos` NeosPage - Lista degli asteroidi vicini alla Terra
+- `/neos/:neoId` NeoDetailPage - Dettagli completi di un singolo asteroide
+- `*` NotFound - Pagina 404 per rotte non trovate
 
 
 ---
@@ -184,14 +185,18 @@ Nasa/
   
 - **Pagina NEO**: 
   - Lista di tutti gli asteroidi di oggi
-  - Statistiche: totale, pericolosi, sicuri
-  - Filtri 
-  - Link ai dettagli di ogni asteroide
+  - Statistiche: tutti, pericolosi, sicuri
+  - Filtri (tutti/pericolosi/sicuri)
+  - Card cliccabili per accedere ai dettagli
+  - Pulsante "Vedi Dettagli" su ogni asteroide
   
-- **Dettaglio NEO**: 
-  - Info complete sull'asteroide
-  - Dimensioni, velocità, distanza
-  - Warning visivo se è pericoloso
+- **Pagina Dettaglio NEO**: 
+  - Informazioni complete sull'asteroide selezionato
+  - Nome, ID e status di pericolosità
+  - Dimensioni (diametro min/max in km e metri)
+  - Storico dei moemnti in cui sono stati più vicini alla Terra
+  - Velocità relativa e distanze per ogni vicinanza
+  - Navigazione con pulsante "Torna a NEO"
   
 - **Gestione Errori**: 
   - Messaggi specifici per tipo di errore

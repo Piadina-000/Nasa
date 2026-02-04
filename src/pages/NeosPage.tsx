@@ -22,6 +22,7 @@
  */
 
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 import type { NeoObject, ApiError } from '../types';
 import { Header, Loading, ErrorMessage } from '../components';
@@ -38,6 +39,7 @@ const CACHE_DURATION = 60 * 60 * 1000; // 1 ora
 export const NeosPage: React.FC = () => {
     // Stato per il filtro (tutti/pericolosi/sicuri)
     const [filter, setFilter] = useState<'all' | 'hazardous' | 'safe'>('all');
+    const navigate = useNavigate();
 
     /**
      * Funzione per recuperare i NEO di oggi dall'API NASA
@@ -169,7 +171,12 @@ export const NeosPage: React.FC = () => {
                                 </h2>
                                 <div className="neos-page__grid">
                                     {hazardousNeos.map((neo) => (
-                                        <div key={neo.id} className="neos-page__neo-card neos-page__neo-card--hazardous">
+                                        <div 
+                                            key={neo.id} 
+                                            className="neos-page__neo-card neos-page__neo-card--hazardous"
+                                            onClick={() => navigate(`/neos/${neo.id}`)}
+                                            style={{ cursor: 'pointer' }}
+                                        >
                                             <div className="neos-page__neo-header">
                                                 <h3 className="neos-page__neo-name">{neo.name}</h3>
                                                 <span className="neos-page__neo-badge neos-page__neo-badge--hazardous">
@@ -210,6 +217,15 @@ export const NeosPage: React.FC = () => {
                                                     </>
                                                 )}
                                             </div>
+                                            <button 
+                                                className="neos-page__details-button"
+                                                onClick={(e) => {
+                                                    e.stopPropagation();
+                                                    navigate(`/neos/${neo.id}`);
+                                                }}
+                                            >
+                                                Vedi Dettagli →
+                                            </button>
                                         </div>
                                     ))}
                                 </div>
@@ -224,7 +240,12 @@ export const NeosPage: React.FC = () => {
                                 </h2>
                                 <div className="neos-page__grid">
                                     {safeNeos.map((neo) => (
-                                        <div key={neo.id} className="neos-page__neo-card">
+                                        <div 
+                                            key={neo.id} 
+                                            className="neos-page__neo-card"
+                                            onClick={() => navigate(`/neos/${neo.id}`)}
+                                            style={{ cursor: 'pointer' }}
+                                        >
                                             <div className="neos-page__neo-header">
                                                 <h3 className="neos-page__neo-name">{neo.name}</h3>
                                                 <span className="neos-page__neo-badge neos-page__neo-badge--safe"> ✅ SAFE </span>
@@ -256,6 +277,15 @@ export const NeosPage: React.FC = () => {
                                                     </>
                                                 )}
                                             </div>
+                                            <button 
+                                                className="neos-page__details-button"
+                                                onClick={(e) => {
+                                                    e.stopPropagation();
+                                                    navigate(`/neos/${neo.id}`);
+                                                }}
+                                            >
+                                                Vedi Dettagli →
+                                            </button>
                                         </div>
                                     ))}
                                 </div>
