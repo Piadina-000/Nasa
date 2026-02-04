@@ -40,7 +40,7 @@ Questi sono i passi per installare e avviare il progetto:
 
 ```bash
 # 1. Clona il repository
-git clone https://github.com/Piadina-000/Nasa.git
+git clone https://github.com/Piadina-000/NASA-Explorer.git
 
 # 2. Entra nella cartella del progetto
 cd Nasa
