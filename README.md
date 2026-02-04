@@ -85,51 +85,77 @@ npm run preview
 ## 📁 Struttura del Progetto
 
 ```
-nasa-explorer/
-├── progettazione/ 
-├── public/                   
+Nasa/
+├── progettazione/
+│   ├── Schizzo_APOD.jpg
+│   └── Schizzo_NEOS.jpg    
 ├── src/
-│   ├── components/          # Componenti riutilizzabili
-│   │   ├── ErrorMessage.*   # Gestione e visualizzazione errori
-│   │   ├── Feedback.*       # Form di feedback utente
-│   │   ├── Header.*         # Barra di navigazione
-│   │   ├── Loading.*        # Spinner di caricamento
-│   │   └── index.ts         # Export centralizzato
-│   ├── pages/               
-│   │   ├── ApodPage.tsx     # Pagina APOD 
-│   │   ├── NeosPage.tsx     # Lista asteroidi NEO
-│   │   ├── NeoDetail.tsx    # Dettaglio singolo asteroide
-│   │   ├── NotFound.tsx     # Pagina 404
-│   │   └── index.ts         # Export pagine
-│   ├── types/               
-│   │   ├── apod.types.ts    # Tipi per APOD
-│   │   ├── neo.types.ts     # Tipi per NEO
-│   │   ├── feedback.types.ts # Tipi per feedback
-│   │   ├── common.types.ts  # Tipi condivisi
-│   │   ├── error.types.ts   # Tipi per errori
-│   │   └── index.ts         # Export tipi
-│   ├── style/               
-│   ├── App.tsx              
-│   ├── main.tsx             
-│   └── index.css            
-├── eslint.config.js         
-├── tsconfig.json            
-├── vite.config.ts           
-└── package.json             
+│   ├── components/
+│   │   ├── ErrorMessage.tsx
+│   │   ├── ErrorMessage.css
+│   │   ├── Feedback.tsx
+│   │   ├── Feedback.css
+│   │   ├── Header.tsx
+│   │   ├── Header.css
+│   │   ├── Loading.tsx
+│   │   ├── Loading.css
+│   │   └── index.ts
+│   ├── core/
+│   │   ├── hooks/
+│   │   └── models/
+│   ├── img/
+│   │   └── gatto.png
+│   ├── pages/
+│   │   ├── ApodPage.tsx
+│   │   ├── NeosPage.tsx
+│   │   ├── NeoDetail.tsx
+│   │   ├── NotFound.tsx
+│   │   └── index.ts
+│   ├── styles/
+│   │   ├── ApodPage.css
+│   │   ├── NeoDetail.css
+│   │   ├── NeosPage.css
+│   │   └── NotFound.css
+│   ├── types/
+│   │   ├── apod.types.ts
+│   │   ├── common.types.ts
+│   │   ├── component.types.ts
+│   │   ├── error.types.ts
+│   │   ├── feedback.types.ts
+│   │   ├── neo.types.ts
+│   │   └── index.ts
+│   ├── App.css
+│   ├── App.tsx
+│   ├── index.css
+│   └── main.tsx
+├── eslint.config.js
+├── tsconfig.json
+├── tsconfig.app.json
+├── tsconfig.node.json
+├── vite.config.ts
+├── package.json
+├── package-lock.json
+├── index.html
+└── README.md
 ```
 
-- **`components/`**: Componenti riutilizzabili 
-- **`pages/`**: Componenti rappresentano intere pagine
-- **`types/`**: Tutte le definizioni TypeScript
-- **`style/`**: CSS separato per ogni pagina
+### 📋 Descrizione Cartelle
+
+**components/**  Componenti riutilizzabili (header, loading, errori, form) 
+**pages/**  Componenti full-page per ogni rotta dell'app 
+**types/**  Tutte le definizioni TypeScript dell'app 
+**styles/**  CSS separato per ogni pagina e componente 
+**core/**  Logica core: hooks personalizzati e modelli 
+**img/**  Immagini utilizzate nell'app 
+**assets/**  Asset statici (icone, immagini React) 
 
 ---
 
 ## 🛠️ Tecnologie Utilizzate
 
 ### Frontend
-- **React** - Libreria UI per costruire interfacce reattive
-- **TypeScript** - JavaScript con tipizzazione statica (aiuta a trovare errori prima del runtime)
+- **React**
+- **TypeScript** 
 - **CSS** 
 
 ---
