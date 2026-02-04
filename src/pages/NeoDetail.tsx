@@ -24,7 +24,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 import type { NeoObject, ApiError } from '../types';
 import { Header, Loading, ErrorMessage } from '../components';
-import '../style/NeoDetail.css';
+import '../styles/NeoDetail.css';
 
 // Configurazione API NASA
 const NASA_API = 'https://api.nasa.gov';

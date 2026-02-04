@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Header } from '../components';
-import '../style/NotFound.css';
+import '../styles/NotFound.css';
 import gattoImg from '../img/gatto.png';
 
 /**

@@ -25,7 +25,7 @@ import { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import type { ApodImage, ApiError } from '../types';
 import { Header, Loading, ErrorMessage } from '../components';
-import '../style/ApodPage.css';
+import '../styles/ApodPage.css';
 
 // Configurazione API NASA
 const NASA_API = 'https://api.nasa.gov';
