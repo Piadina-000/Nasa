@@ -1,0 +1,5 @@
+# Ensure GitHub Linguist detects source files
+src/** linguist-detectable=true
+*.ts linguist-language=TypeScript
+*.tsx linguist-language=TypeScript
+*.css linguist-language=CSS
