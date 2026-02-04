@@ -204,9 +204,9 @@ Nasa/
 
 ### Come funziona?
 
-L'app usa le **API pubbliche della NASA**, che sono gratuite ma richiedono una chiave (API Key).
+L'app usa le API pubbliche della NASA, che sono gratuite ma richiedono una chiave.
 
-### Ottenere la tua API Key (consigliato!)
+### Ottenere la tua API Key
 
 1. Vai su [api.nasa.gov](https://api.nasa.gov)
 2. Scorri fino a "Get Your API Key"
@@ -227,9 +227,9 @@ const API_KEY = '...'; // ← Sostituisci qui
 
 ## 📊 Stato del Progetto
 
-🟢 **In sviluppo** (Febbraio 2026)
+🟢 **Concluso** (Febbraio 2026)
 
-Progetto per l'esame **UF07WEB** - Anno Accademico 2025/26
+Progetto per l'esame del corso **UF07WEB** - Anno Accademico 2025/26
 
 ---
 

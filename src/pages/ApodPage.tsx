@@ -29,7 +29,7 @@ import '../styles/ApodPage.css';
 
 // Configurazione API NASA
 const NASA_API = 'https://api.nasa.gov';
-const API_KEY = '9ndqamVaOsIlkGRpXYRAZH8QehrjctGv56cfNLbq'; // Chiave demo NASA
+const API_KEY = '9ndqamVaOsIlkGRpXYRAZH8QehrjctGv56cfNLbq'; // Chiave API NASA
 
 // Sistema di cache manuale per ridurre le chiamate API
 // La NASA ha un rate limit, quindi meglio cachare i risultati
