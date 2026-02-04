@@ -151,12 +151,23 @@ Nasa/
 
 ---
 
+## �️ Routing
+
+ `/`  ApodPage  Immagine astronomica del giorno (APOD) 
+ `/neos`  NeosPage  Lista degli asteroidi vicini alla Terra 
+ `*`  NotFound  Pagina 404 per rotte non trovate 
+
+
+---
+
 ## 🛠️ Tecnologie Utilizzate
 
-### Frontend
-- **React**
+- **React** 
 - **TypeScript** 
 - **CSS** 
+- **React Router DOM** 
+- **TanStack React Query** 
+- **Vite** 
 
 ---
 
